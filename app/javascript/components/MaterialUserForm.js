@@ -16,7 +16,7 @@ export default function App() {
             .then(response => {
                 const todoItem = response.data
                 this.props.createTodoItem(todoItem)
-                //this.props.clearErrors()
+                this.props.clearErrors()
             })
             .catch(error => {
                 this.props.handleErrors(error)
@@ -33,7 +33,7 @@ export default function App() {
       <Input id="email" {...register('mail', { required: true, maxLength: 30 })} />
       {errors.nombre && errors.nombre.type === "required" && <span>This is required</span>}
       {errors.nombre && errors.nombre.type === "maxLength" && <span>Max length exceeded</span> }
-      
+      <br/><br/>
       <Button
         variant="contained"
         color="primary"

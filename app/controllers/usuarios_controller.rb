@@ -3,7 +3,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios or /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /usuarios/1 or /usuarios/1.json

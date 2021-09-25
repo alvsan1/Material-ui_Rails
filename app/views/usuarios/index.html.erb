@@ -2,6 +2,8 @@
 
 <h1>Usuarios</h1>
 
+
+
 <table>
   <thead>
     <tr>
@@ -21,9 +23,23 @@
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    
+
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= will_paginate @usuarios %>
+ <%= link_to 'New Usuario', new_usuario_path %> 
+<br>
+
+<%= content_tag :div, class: "temp_information", data: {temp: @usuarios} do %>
+
+<%= react_component 'MaterialUserList' %>
+
+<% end %>
+
+<br>
+
